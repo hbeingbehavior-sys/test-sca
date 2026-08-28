@@ -1,0 +1,22 @@
+[versions]
+# Rich versions intentionally exercise more than the simple `group:name:version`
+# notation. These selected versions remain exact and intentionally vulnerable.
+jackson = { strictly = "2.13.4", prefer = "2.13.4" }
+commons-text = { require = "1.9" }
+log4j = "2.14.1"
+
+# Exact versions used as direct controls that should not require remediation.
+commons-codec = "1.22.1"
+commons-math3 = "3.6.1"
+
+[libraries]
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+commons-text = { module = "org.apache.commons:commons-text", version.ref = "commons-text" }
+log4j-slf4j-impl = { module = "org.apache.logging.log4j:log4j-slf4j-impl", version.ref = "log4j" }
+commons-codec = { module = "commons-codec:commons-codec", version.ref = "commons-codec" }
+commons-math3 = { module = "org.apache.commons:commons-math3", version.ref = "commons-math3" }
+
+[bundles]
+catalog-direct = ["jackson-databind", "commons-text"]
+catalog-transitive-carriers = ["log4j-slf4j-impl"]
+catalog-safe-controls = ["commons-codec", "commons-math3"]
