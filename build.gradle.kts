@@ -1,9 +1,14 @@
 plugins {
+    application
     java
 }
 
 group = "com.example.sca"
 version = "1.0.0"
+
+application {
+    mainClass = "com.example.sca.App"
+}
 
 repositories {
     mavenCentral()
